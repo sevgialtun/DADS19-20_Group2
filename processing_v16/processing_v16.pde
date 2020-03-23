@@ -19,7 +19,8 @@ int cyanborder = 1000;
 int blueborder = 5000;
 int yellowborder = 1800;
 
-int tolerance = 100; // Negligible amount of missing - uncolored - cells
+int tolerance = 10; // Negligible amount of missing - uncolored - cells
+int loopcounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
 
@@ -34,6 +35,7 @@ void setup()
   cyansize = 0;
   bluesize = 0;
   yellowsize = 0;
+  loopcounter = 0;
 
 
 
@@ -57,7 +59,7 @@ Below, one cell for each color - which represents different spaces - are created
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 4;
   matrix[39][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
 
-// Below, Coloring process of the each cell according to its value.
+  // Below, Coloring process of the each cell according to its value.
   for (int j=1; j<Ybol-1; j++)
   {
     for (int i=1; i<Xbol-1; i++)
@@ -99,7 +101,7 @@ void draw()
   growblue();
   growyellow();
   growcyan();
-  //growcontrol();  
+  growcontrol();  
   //noLoop();
 
 
@@ -454,39 +456,45 @@ void growcyan()
 }
 
 void growcontrol() { 
-  
+
   /*
   Sometimes, a color is tight cornered by other colors. In that case, cornered color
-  can not grow as much as expected. In this scenario, results might be deceptive.
-  
-  In order to prevent that, growcontrol function counts the number of white cells if
-  the amout is more than expected or not. Since small amount of errors acceptable,
-  a tolerance is added to the function.
-  
-  If the error is big enough to cause deception, system reruns itself and skips the 
-  undesirable result.
-  */
+   can not grow as much as expected. In this scenario, results might be deceptive.
+   
+   In order to prevent that, growcontrol function counts the number of white cells if
+   the amout is more than expected or not. Since small amount of errors acceptable,
+   a tolerance is added to the function.
+   
+   If the error is big enough to cause deception, system reruns itself and skips the 
+   undesirable result.
+   */
+
+
 
   int countergrow = 0;
   int allcells = Xbol * Ybol;
   int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
   int control = allcells - coloredcells + tolerance;
 
+  loopcounter++;
 
-  for (int j=1; j<Ybol-1; j++)
+  if (loopcounter >= 5000) 
   {
-    for (int i=1; i<Xbol-1; i++)
+    for (int j=1; j<Ybol-1; j++)
     {
-      if (matrix[i][j] ==0)
+      for (int i=1; i<Xbol-1; i++)
       {
-        countergrow++;
-        //println(counterbuyume);
+        if (matrix[i][j] ==0)
+        {
+          countergrow++;
+          //println(counterbuyume);
+        }
       }
     }
-  }
 
-  if (countergrow >= control) {
-    setup();
+    if (countergrow >= control) {
+      setup();
+    }
   }
 }
 
