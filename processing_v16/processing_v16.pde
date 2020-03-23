@@ -3,25 +3,25 @@
 //Version 16.0
 
 
-int Xbol = 80;
+int Xbol = 80; // Interior boundries of the module
 int Ybol = 160;
 
 
-int redsize = 0;
+int redsize = 0; // Momentarily number of the cells
 int greensize = 0;
 int cyansize = 0;
 int bluesize = 0;
 int yellowsize = 0;
 
-int redborder = 3000;
+int redborder = 3000; // Intended number of the cells
 int greenborder = 2000;
 int cyanborder = 1000;
 int blueborder = 5000;
 int yellowborder = 1800;
 
-int tolerans = 100;
+int tolerance = 100; // Negligible amount of missing - uncolored - cells
 
-int [][] matrix = new int[Xbol][Ybol];
+int [][] matrix = new int[Xbol][Ybol]; 
 
 void setup()
 {
@@ -46,14 +46,18 @@ void setup()
     }
   }
 
-
-
+  /*
+Below, one cell for each color - which represents different spaces - are created 
+   randomly in order to generate alternative organizations. Each color - space - different
+   int value to make further calculations.
+   */
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 1;
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 2;
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 3;
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 4;
-  matrix[39][1]= 5;
+  matrix[39][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
 
+// Below, Coloring process of the each cell according to its value.
   for (int j=1; j<Ybol-1; j++)
   {
     for (int i=1; i<Xbol-1; i++)
@@ -95,7 +99,7 @@ void draw()
   growblue();
   growyellow();
   growcyan();
-  //buyumekontrol(); 
+  //growcontrol();  
   //noLoop();
 
 
@@ -113,23 +117,23 @@ void draw()
  }
  }
  */
-void growred()
+void growred() //Growing function of the colors - spaces -. 
 {
   int whilecnt = 0;
-  int whilecnt2 = 0;
-  int successcnt = 0;
+  //int whilecnt2 = 0;
+  //int successcnt = 0;
   int i = 0;
   int j = 0;
   int successred3 = 0;
 
-  while (successred3 == 0) {
+  while (successred3 == 0) { // Limits the growing to determinated number.
     int successred2 = 0;
     if ( redsize < redborder) {      
-      while (successred2 == 0) {
+      while (successred2 == 0) { // Randomly checks four sides of the randomly founded red cell. If the checked cell is white - empty -, grows in that direction. If it does not white, checks another side randomly until find the white cell.
         //successcnt++;
         whilecnt++;
         int successred = 0;
-        while (successred == 0) {
+        while (successred == 0) { //Checks cells randomly if it is red or not. When it finds the red cell, loop ends and function proceeds.
 
           int  randredx = int(random(1, Xbol - 1));
           int  randredy = int(random(1, Ybol - 1));
@@ -449,12 +453,24 @@ void growcyan()
   }
 }
 
-void buyumekontrol() {
+void growcontrol() { 
+  
+  /*
+  Sometimes, a color is tight cornered by other colors. In that case, cornered color
+  can not grow as much as expected. In this scenario, results might be deceptive.
+  
+  In order to prevent that, growcontrol function counts the number of white cells if
+  the amout is more than expected or not. Since small amount of errors acceptable,
+  a tolerance is added to the function.
+  
+  If the error is big enough to cause deception, system reruns itself and skips the 
+  undesirable result.
+  */
 
-  int counterbuyume = 0;
-  int toplamhucre = Xbol * Ybol;
-  int boyalihucre = redborder + greenborder + yellowborder + blueborder + cyanborder;
-  int kontrol = toplamhucre - boyalihucre + tolerans;
+  int countergrow = 0;
+  int allcells = Xbol * Ybol;
+  int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
+  int control = allcells - coloredcells + tolerance;
 
 
   for (int j=1; j<Ybol-1; j++)
@@ -463,13 +479,13 @@ void buyumekontrol() {
     {
       if (matrix[i][j] ==0)
       {
-        counterbuyume++;
+        countergrow++;
         //println(counterbuyume);
       }
     }
   }
 
-  if (counterbuyume >= kontrol) {
+  if (countergrow >= control) {
     setup();
   }
 }
@@ -488,7 +504,7 @@ void buyumekontrol() {
  }
  */
 
-void keyPressed()
+void keyPressed() // Resets the code.
 {
   if ((keyCode == 'r') || (keyCode == 'R'))
   {
