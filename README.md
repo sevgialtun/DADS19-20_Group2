@@ -1,5 +1,5 @@
 # DADS19-20_Group2
-Studies of Space Organization Algorithm for Antarctica Mobile Modules
+Studies of Space Organization Algorithm for Antarctica Research Base - Mobile Modules
 
 Istanbul Technical University, Architectural Design Computing Program
 Digital Architectural Design Studio 2019-20
