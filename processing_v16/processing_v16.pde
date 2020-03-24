@@ -19,7 +19,7 @@ int cyanborder = 1000;
 int blueborder = 5000;
 int yellowborder = 1800;
 
-int tolerance = 10; // Negligible amount of missing - uncolored - cells
+int tolerance = 100; // Negligible amount of missing - uncolored - cells
 int loopcounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
@@ -478,7 +478,7 @@ void growcontrol() {
 
   loopcounter++;
 
-  if (loopcounter >= 5000) 
+  if (loopcounter >= 7000) 
   {
     for (int j=1; j<Ybol-1; j++)
     {
