@@ -40,9 +40,6 @@ void setup()
   loopcounter = 0;
 
 
-
-
-
   for (int j=0; j<Ybol; j++)
   {
     for (int i=0; i<Xbol; i++)
@@ -105,7 +102,7 @@ void draw()
   growyellow();
   growcyan();
   growcontrol();  
-  //noLoop();
+ 
 
 
   //println(millis() - timecnt);
@@ -180,7 +177,7 @@ void growred() //Growing function of the colors - spaces -.
           stroke(0);
           strokeWeight(1);
           rect((width/Xbol)*newi, (height/Ybol)*newj, (width/Xbol), (height/Ybol));
-        } else if (whilecnt > 10000) {
+        } else if (whilecnt > 5000) {
           successred2 = 1;
           successred3 = 1;
         }
@@ -246,7 +243,7 @@ void growgreen()
           rect((width/Xbol)*newk, (height/Ybol)*newl, (width/Xbol), (height/Ybol));
           //print(newk + ",");
           //println(newl);
-        } else if (whilecnt > 10000) {
+        } else if (whilecnt > 5000) {
           successgreen2 = 1;
           successgreen3 = 1;
         }
@@ -313,7 +310,7 @@ void growblue()
           rect((width/Xbol)*newm, (height/Ybol)*newn, (width/Xbol), (height/Ybol));
           //print(newm + ",");
           //println(newn);
-        } else if (whilecnt > 10000) {
+        } else if (whilecnt > 5000) {
           successblue2 = 1;
           successblue3 = 1;
         }
@@ -447,7 +444,7 @@ void growcyan()
           rect((width/Xbol)*newq, (height/Ybol)*neww, (width/Xbol), (height/Ybol));
           //print(newq + ",");
           //println(neww);
-        } else if (whilecnt > 10000) {
+        } else if (whilecnt > 5000) {
           successcyan2 = 1;
           successcyan3 = 1;
         }
