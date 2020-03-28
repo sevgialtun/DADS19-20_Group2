@@ -1,12 +1,11 @@
 // Digital Architectural Design Studio - Group 2
 //Space Organization Algorithm
 //Version 16.0
-//covid covid
-// pelin
 
 
-int Xbol = 80; // Interior boundries of the module
-int Ybol = 160;
+
+int Xbol = 35; // Interior boundries of the module
+int Ybol = 70;
 
 
 int redsize = 0; // Momentarily number of the cells
@@ -15,11 +14,12 @@ int cyansize = 0;
 int bluesize = 0;
 int yellowsize = 0;
 
-int redborder = 3000; // Intended number of the cells
-int greenborder = 2000;
-int cyanborder = 1000;
-int blueborder = 5000;
-int yellowborder = 1800;
+int redborder = 800; // Intended number of the cells
+int greenborder = 500;
+int cyanborder = 200;
+int blueborder = 600;
+int yellowborder = 350;
+
 
 int tolerance = 100; // Negligible amount of missing - uncolored - cells
 int loopcounter = 0;
@@ -38,6 +38,7 @@ void setup()
   bluesize = 0;
   yellowsize = 0;
   loopcounter = 0;
+ 
 
 
 
@@ -59,7 +60,7 @@ Below, one cell for each color - which represents different spaces - are created
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 2;
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 3;
   matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 4;
-  matrix[39][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
 
   // Below, Coloring process of the each cell according to its value.
   for (int j=1; j<Ybol-1; j++)
@@ -379,7 +380,7 @@ void growyellow()
           rect((width/Xbol)*newr, (height/Ybol)*newt, (width/Xbol), (height/Ybol));
           //print(newr + ",");
           //println(newt);
-        } else if (whilecnt > 10000) {
+        } else if (whilecnt > 5000) {
           successyellow2 = 1;
           successyellow3 = 1;
         }
@@ -473,18 +474,19 @@ void growcontrol() {
 
 
 
-  int countergrow = 0;
+  
   int allcells = Xbol * Ybol;
   int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
   int control = allcells - coloredcells + tolerance;
+  int countergrow = 0;
 
   loopcounter++;
 
-  if (loopcounter >= 7000) 
+  if (loopcounter >= 2000) 
   {
-    for (int j=1; j<Ybol-1; j++)
+    for (int j=1; j<Ybol; j++)
     {
-      for (int i=1; i<Xbol-1; i++)
+      for (int i=1; i<Xbol; i++)
       {
         if (matrix[i][j] ==0)
         {
