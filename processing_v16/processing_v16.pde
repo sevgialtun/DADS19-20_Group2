@@ -1,6 +1,7 @@
 // Digital Architectural Design Studio - Group 2
 //Space Organization Algorithm
 //Version 16.0
+//covid covid
 
 
 int Xbol = 80; // Interior boundries of the module
