@@ -5,7 +5,7 @@
 
 
 int Xbol = 35; // Interior boundries of the module
-int Ybol = 70;
+int Ybol = 70; // Each cell has 10*10cm dimensions
 
 
 int redsize = 0; // Momentarily number of the cells
@@ -38,7 +38,7 @@ void setup()
   bluesize = 0;
   yellowsize = 0;
   loopcounter = 0;
- 
+
 
 
 
@@ -474,7 +474,7 @@ void growcontrol() {
 
 
 
-  
+
   int allcells = Xbol * Ybol;
   int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
   int control = allcells - coloredcells + tolerance;
@@ -497,6 +497,10 @@ void growcontrol() {
     }
 
     if (countergrow >= control) {
+      setup();
+    }
+    if (countergrow < control) {
+      saveFrame("alternative-####.png");
       setup();
     }
   }
