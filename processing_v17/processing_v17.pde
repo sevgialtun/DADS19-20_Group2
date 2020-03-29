@@ -2,7 +2,11 @@
 //Space Organization Algorithm
 //Version 17.0
 
-
+//growCell red;
+//growCell green;
+//growCell cyan;
+//growCell blue;
+//growCell yellow;
 
 int Xbol = 35; // Interior boundries of the module
 int Ybol = 70; // Each cell has 10*10cm dimensions
@@ -31,6 +35,12 @@ void setup()
   frameRate(5000);
   size(400, 800);
   background(255);
+
+  //red = new growCell();
+  //green = new growCell();
+  //cyan = new growCell();
+  //blue = new growCell();
+  //yellow = new growCell();
 
   redsize = 0;
   greensize = 0;
@@ -97,28 +107,13 @@ void draw()
   //long timecnt = millis();
 
   growgreen();
-  growred();
-  growblue();
-  growyellow();
-  growcyan();
-  growcontrol();  
- 
+
+
 
 
   //println(millis() - timecnt);
 }
-/*void keyPressed()
- {
- if ((keyCode == 'r') || (keyCode == 'R'))
- {
- growred();
- growgreen();
- growblue();
- growyellow();
- growcyan();
- }
- }
- */
+
 void growred() //Growing function of the colors - spaces -. 
 {
   int whilecnt = 0;
@@ -188,321 +183,56 @@ void growred() //Growing function of the colors - spaces -.
   }
 }
 
-void growgreen()
-{
-  int whilecnt = 0;
-  int whilecnt2 = 0;
-  int k = 0;
-  int l = 0;
-  int successgreen3 = 0;
 
-  while (successgreen3 == 0) {
-    int successgreen2 = 0;
-    if ( greensize < greenborder) {
-      while (successgreen2 == 0) {
-        whilecnt++;
-        int successgreen = 0;
-        while (successgreen == 0) {
-          int  randgreenx = int(random(1, Xbol - 1));
-          int  randgreeny = int(random(1, Ybol - 1));
-          if (matrix[randgreenx][randgreeny] == 2) {
-            k = randgreenx;
-            l = randgreeny;
-            successgreen = 1;
-          }
-        }
-
-        int newk = k;
-        int newl = l;
-
-        float eksengreen = random(-1, 1);
-
-        if (eksengreen > 0) {
-          float eksengreenx = random(-1, 1);
-          if (eksengreenx > 0) {
-            newk = k+1;
-          } else if (eksengreenx <= 0) {
-            newk = k-1;
-          }
-        } else if (eksengreen <= 0) {
-          float eksengreeny = random(-1, 1);
-          if (eksengreeny > 0) {
-            newl = l+1;
-          } else if (eksengreeny <= 0) {
-            newl = l-1;
-          }
-        }
-        if ((matrix[newk][newl] == 0) && (newl < Ybol) && (newl >= 0) && (newk < Xbol) && (newk >= 0)) {
-          successgreen2 = 1;
-          successgreen3 = 1;
-          greensize++;
-          matrix[newk][newl] = 2;
-          fill(0, 255, 0);
-          stroke(0);
-          strokeWeight(1);
-          rect((width/Xbol)*newk, (height/Ybol)*newl, (width/Xbol), (height/Ybol));
-          //print(newk + ",");
-          //println(newl);
-        } else if (whilecnt > 5000) {
-          successgreen2 = 1;
-          successgreen3 = 1;
-        }
-      }
-    } else if (greensize >= greenborder) {
-      successgreen3 = 1;
-    }
-  }
-}
-
-
-void growblue()
-{
-  int whilecnt = 0;
-  int whilecnt2 = 0;
-  int m = 0;
-  int n = 0;
-  int successblue3 = 0;
-
-  while (successblue3 == 0) {
-    int successblue2 = 0;
-    if ( bluesize < blueborder) {
-      while (successblue2 == 0) {
-        whilecnt++;
-        int successblue = 0;
-        while (successblue == 0) {
-          int  randbluex = int(random(1, Xbol - 1));
-          int  randbluey = int(random(1, Ybol - 1));
-          if (matrix[randbluex][randbluey] == 3) {
-            m = randbluex;
-            n = randbluey;
-            successblue = 1;
-          }
-        }
-
-        int newm = m;
-        int newn = n;
-
-        float eksenblue = random(-1, 1);
-
-        if (eksenblue > 0) {
-          float eksenbluex = random(-1, 1);
-          if (eksenbluex > 0) {
-            newm = m+1;
-          } else if (eksenbluex <= 0) {
-            newm = m-1;
-          }
-        } else if (eksenblue <= 0) {
-          float eksenbluey = random(-1, 1);
-          if (eksenbluey > 0) {
-            newn = n+1;
-          } else if (eksenbluey <= 0) {
-            newn = n-1;
-          }
-        }
-        if ((matrix[newm][newn] == 0) && (newn < Ybol) && (newn >= 0) && (newm < Xbol) && (newm >= 0)) {
-          successblue2 = 1;
-          successblue3 = 1;
-          bluesize++;
-          matrix[newm][newn] = 3;
-          fill(0, 0, 255);
-          stroke(0);
-          strokeWeight(1);
-          rect((width/Xbol)*newm, (height/Ybol)*newn, (width/Xbol), (height/Ybol));
-          //print(newm + ",");
-          //println(newn);
-        } else if (whilecnt > 5000) {
-          successblue2 = 1;
-          successblue3 = 1;
-        }
-      }
-    } else if (bluesize >= blueborder) {
-      successblue3 = 1;
-    }
-  }
-}
-
-
-void growyellow()
-{
-  int whilecnt = 0;
-  int whilecnt2 = 0;
-  int r = 0;
-  int t = 0;
-  int successyellow3 = 0;
-
-  while (successyellow3 == 0) {
-    int successyellow2 = 0;
-    if ( yellowsize < yellowborder) {
-      while (successyellow2 == 0) {
-        whilecnt++;
-        int successyellow = 0;
-        while (successyellow == 0) {
-          int  randyellowx = int(random(1, Xbol - 1));
-          int  randyellowy = int(random(1, Ybol - 1));
-          if (matrix[randyellowx][randyellowy] == 4) {
-            r = randyellowx;
-            t = randyellowy;
-            successyellow = 1;
-          }
-        }
-
-        int newr = r;
-        int newt = t;
-
-        float eksenyellow = random(-1, 1);
-
-        if (eksenyellow > 0) {
-          float eksenyellowx = random(-1, 1);
-          if (eksenyellowx > 0) {
-            newr = r+1;
-          } else if (eksenyellowx <= 0) {
-            newr = r-1;
-          }
-        } else if (eksenyellow <= 0) {
-          float eksenyellowy = random(-1, 1);
-          if (eksenyellowy > 0) {
-            newt = t+1;
-          } else if (eksenyellowy <= 0) {
-            newt = t-1;
-          }
-        }
-        if ((matrix[newr][newt] == 0) && (newt < Ybol) && (newt >= 0) && (newr < Xbol) && (newr >= 0)) {
-          successyellow2 = 1;
-          successyellow3 = 1;
-          yellowsize++;
-          matrix[newr][newt] = 4;
-          fill(255, 255, 0);
-          stroke(0);
-          strokeWeight(1);
-          rect((width/Xbol)*newr, (height/Ybol)*newt, (width/Xbol), (height/Ybol));
-          //print(newr + ",");
-          //println(newt);
-        } else if (whilecnt > 5000) {
-          successyellow2 = 1;
-          successyellow3 = 1;
-        }
-      }
-    } else if (yellowsize >= yellowborder) {
-      successyellow3 = 1;
-    }
-  }
-}
-
-
-void growcyan()
-{
-  int whilecnt = 0;
-  int whilecnt2 = 0;
-  int q = 0;
-  int w = 0;
-  int successcyan3 = 0;
-
-  while (successcyan3 == 0) {
-    int successcyan2 = 0;
-    if ( cyansize < cyanborder) {
-      while (successcyan2 == 0) {
-        whilecnt++;
-        int successcyan = 0;
-        while (successcyan == 0) {
-          int  randcyanx = int(random(1, Xbol - 1));
-          int  randcyany = int(random(1, Ybol - 1));
-          if (matrix[randcyanx][randcyany] == 5) {
-            q = randcyanx;
-            w = randcyany;
-            successcyan = 1;
-          }
-        }
-
-        int newq = q;
-        int neww = w;
-
-        float eksencyan = random(-1, 1);
-
-        if (eksencyan > 0) {
-          float eksencyanx = random(-1, 1);
-          if (eksencyanx > 0) {
-            newq = q+1;
-          } else if (eksencyanx <= 0) {
-            newq = q-1;
-          }
-        } else if (eksencyan <= 0) {
-          float eksencyany = random(-1, 1);
-          if (eksencyany > 0) {
-            neww = w+1;
-          } else if (eksencyany <= 0) {
-            neww = w-1;
-          }
-        }
-        if ((matrix[newq][neww] == 0) && (neww < Ybol) && (neww >= 0) && (newq < Xbol) && (newq >= 0)) {
-          successcyan2 = 1;
-          successcyan3 = 1;
-          cyansize++;
-          matrix[newq][neww] = 5;
-          fill(0, 255, 255);
-          stroke(0);
-          strokeWeight(1);
-          rect((width/Xbol)*newq, (height/Ybol)*neww, (width/Xbol), (height/Ybol));
-          //print(newq + ",");
-          //println(neww);
-        } else if (whilecnt > 5000) {
-          successcyan2 = 1;
-          successcyan3 = 1;
-        }
-      }
-    } else if (cyansize >= cyanborder) {
-      successcyan3 = 1;
-    }
-  }
-}
-
+/*
 void growcontrol() { 
-
-  /*
-  Sometimes, a color is tight cornered by other colors. In that case, cornered color
-   can not grow as much as expected. In this scenario, results might be deceptive.
-   
-   In order to prevent that, growcontrol function counts the number of white cells if
-   the amout is more than expected or not. Since small amount of errors acceptable,
-   a tolerance is added to the function.
-   
-   If the error is big enough to cause deception, system reruns itself and skips the 
-   undesirable result.
-   */
-
-
-
-
-  int allcells = Xbol * Ybol;
-  int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
-  int control = allcells - coloredcells + tolerance;
-  int countergrow = 0;
-
-  loopcounter++;
-
-  if (loopcounter >= 2000) 
-  {
-    for (int j=1; j<Ybol; j++)
-    {
-      for (int i=1; i<Xbol; i++)
-      {
-        if (matrix[i][j] ==0)
-        {
-          countergrow++;
-          //println(counterbuyume);
-        }
-      }
-    }
-
-    if (countergrow >= control) {
-      setup();
-    }
-    if (countergrow < control) {
-      saveFrame("alternative-####.png");
-      setup();
-    }
-  }
-}
-
+ 
+/*
+ Sometimes, a color is tight cornered by other colors. In that case, cornered color
+ can not grow as much as expected. In this scenario, results might be deceptive.
+ 
+ In order to prevent that, growcontrol function counts the number of white cells if
+ the amout is more than expected or not. Since small amount of errors acceptable,
+ a tolerance is added to the function.
+ 
+ If the error is big enough to cause deception, system reruns itself and skips the 
+ undesirable result.
+ 
+ 
+ 
+ 
+ 
+ int allcells = Xbol * Ybol;
+ int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
+ int control = allcells - coloredcells + tolerance;
+ int countergrow = 0;
+ 
+ loopcounter++;
+ 
+ if (loopcounter >= 2000) 
+ {
+ for (int j=1; j<Ybol; j++)
+ {
+ for (int i=1; i<Xbol; i++)
+ {
+ if (matrix[i][j] ==0)
+ {
+ countergrow++;
+ //println(counterbuyume);
+ }
+ }
+ }
+ 
+ if (countergrow >= control) {
+ setup();
+ }
+ if (countergrow < control) {
+ saveFrame("alternative-####.png");
+ setup();
+ }
+ }
+ }
+ */
 /*void mouseClicked()
  {
  for (int repeat = 0; repeat<10000; repeat++)
