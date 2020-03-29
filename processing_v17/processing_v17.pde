@@ -2,11 +2,11 @@
 //Space Organization Algorithm
 //Version 17.0
 
-//growCell red;
-//growCell green;
-//growCell cyan;
-//growCell blue;
-//growCell yellow;
+growCell red;
+growCell green;
+growCell cyan;
+growCell blue;
+growCell yellow;
 
 int Xbol = 35; // Interior boundries of the module
 int Ybol = 70; // Each cell has 10*10cm dimensions
@@ -18,11 +18,11 @@ int cyansize = 0;
 int bluesize = 0;
 int yellowsize = 0;
 
-int redborder = 800; // Intended number of the cells
-int greenborder = 500;
-int cyanborder = 200;
-int blueborder = 600;
-int yellowborder = 350;
+int redborder = 100; // Intended number of the cells
+int greenborder = 100;
+int cyanborder = 100;
+int blueborder = 100;
+int yellowborder = 100;
 
 
 int tolerance = 100; // Negligible amount of missing - uncolored - cells
@@ -36,11 +36,12 @@ void setup()
   size(400, 800);
   background(255);
 
-  //red = new growCell();
-  //green = new growCell();
-  //cyan = new growCell();
-  //blue = new growCell();
-  //yellow = new growCell();
+  red = new growCell(1, redsize, redborder, 255, 0, 0);
+  green = new growCell(2, greensize, greenborder, 0, 255, 0);
+  blue = new growCell(3, bluesize, blueborder, 0, 0, 255);
+  yellow = new growCell(4, yellowsize, yellowborder, 255, 255, 0);
+  cyan = new growCell(5, cyansize, cyanborder, 0, 255, 255);
+
 
   redsize = 0;
   greensize = 0;
@@ -104,85 +105,15 @@ Below, one cell for each color - which represents different spaces - are created
 
 void draw()
 {
-  //long timecnt = millis();
-
-  growgreen();
 
 
-
-
-  //println(millis() - timecnt);
+  red.growing();
+  green.growing();
+  blue.growing();
+  yellow.growing();
+  cyan.growing();
+  //growcontrol();
 }
-
-void growred() //Growing function of the colors - spaces -. 
-{
-  int whilecnt = 0;
-  //int whilecnt2 = 0;
-  //int successcnt = 0;
-  int i = 0;
-  int j = 0;
-  int successred3 = 0;
-
-  while (successred3 == 0) { // Limits the growing to determinated number.
-    int successred2 = 0;
-    if ( redsize < redborder) {      
-      while (successred2 == 0) { // Randomly checks four sides of the randomly founded red cell. If the checked cell is white - empty -, grows in that direction. If it does not white, checks another side randomly until find the white cell.
-        //successcnt++;
-        whilecnt++;
-        int successred = 0;
-        while (successred == 0) { //Checks cells randomly if it is red or not. When it finds the red cell, loop ends and function proceeds.
-
-          int  randredx = int(random(1, Xbol - 1));
-          int  randredy = int(random(1, Ybol - 1));
-          if (matrix[randredx][randredy] == 1) {
-            i = randredx;
-            j = randredy;
-            successred = 1;
-
-            //println(successcnt);
-          }
-        }
-
-        int newi = i;
-        int newj = j;
-
-        float eksenred = random(-1, 1);
-
-        if (eksenred > 0) {
-          float eksenredx = random(-1, 1);
-          if (eksenredx > 0) {
-            newi = i+1;
-          } else if (eksenredx <= 0) {
-            newi = i-1;
-          }
-        } else if (eksenred <= 0) {
-          float eksenredy = random(-1, 1);
-          if (eksenredy > 0) {
-            newj = j+1;
-          } else if (eksenredy <= 0) {
-            newj = j-1;
-          }
-        }
-        if ((matrix[newi][newj] == 0) && (newj < Ybol) && (newj >= 0) && (newi < Xbol) && (newi >= 0)) {
-          successred2 = 1;
-          successred3 = 1;
-          redsize++;
-          matrix[newi][newj] = 1;
-          fill(255, 0, 0);
-          stroke(0);
-          strokeWeight(1);
-          rect((width/Xbol)*newi, (height/Ybol)*newj, (width/Xbol), (height/Ybol));
-        } else if (whilecnt > 5000) {
-          successred2 = 1;
-          successred3 = 1;
-        }
-      }
-    } else if (redsize >= redborder) {
-      successred3 = 1;
-    }
-  }
-}
-
 
 /*
 void growcontrol() { 
