@@ -18,14 +18,15 @@ int cyansize = 0;
 int bluesize = 0;
 int yellowsize = 0;
 
-int redborder = 100; // Intended number of the cells
-int greenborder = 100;
-int cyanborder = 100;
-int blueborder = 100;
-int yellowborder = 100;
+int redborder = 450; // Intended number of the cells
+int greenborder = 500;
+int cyanborder = 500;
+int blueborder = 500;
+int yellowborder = 500;
 
 
 int tolerance = 100; // Negligible amount of missing - uncolored - cells
+int cycletime = 2000;
 int loopcounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
@@ -112,10 +113,10 @@ void draw()
   blue.growing();
   yellow.growing();
   cyan.growing();
-  //growcontrol();
+  growcontrol();
 }
 
-/*
+
 void growcontrol() { 
  
 /*
@@ -127,56 +128,38 @@ void growcontrol() {
  a tolerance is added to the function.
  
  If the error is big enough to cause deception, system reruns itself and skips the 
- undesirable result.
- 
- 
- 
- 
- 
- int allcells = Xbol * Ybol;
- int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
- int control = allcells - coloredcells + tolerance;
- int countergrow = 0;
- 
- loopcounter++;
- 
- if (loopcounter >= 2000) 
- {
- for (int j=1; j<Ybol; j++)
- {
- for (int i=1; i<Xbol; i++)
- {
- if (matrix[i][j] ==0)
- {
- countergrow++;
- //println(counterbuyume);
- }
- }
- }
- 
- if (countergrow >= control) {
- setup();
- }
- if (countergrow < control) {
- saveFrame("alternative-####.png");
- setup();
- }
- }
- }
- */
-/*void mouseClicked()
- {
- for (int repeat = 0; repeat<10000; repeat++)
- { 
- growgreen();
- growred();
- growblue();
- growyellow();
- growcyan();
- }
- buyumekontrol();
- }
- */
+ undesirable result. */
+
+int allcells = Xbol * Ybol;
+int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
+int control = allcells - coloredcells + tolerance;
+int countergrow = 0;
+
+loopcounter++;
+
+if (loopcounter >= cycletime) 
+{
+  for (int j=1; j<Ybol; j++)
+  {
+    for (int i=1; i<Xbol; i++)
+    {
+      if (matrix[i][j] ==0)
+      {
+        countergrow++;       
+      }
+    }
+  }
+
+  if (countergrow >= control) {
+    setup();
+  }
+  if (countergrow < control) {
+    saveFrame("alternative-####.png");
+    setup();
+  }
+}
+}
+
 
 void keyPressed() // Resets the code.
 {
