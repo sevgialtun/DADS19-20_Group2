@@ -8,8 +8,9 @@ class growCell
   int colorSize;
   int colorBorder;
 
+
   growCell(int cValue, int cSize, int cBorder, int cR, int cG, int cB) {
-    
+
     colorValue = cValue;
     colorR = cR;
     colorG = cG;
@@ -17,7 +18,8 @@ class growCell
     colorSize = cSize;
     colorBorder = cBorder;
   }
-void growing(){
+
+  void growing() {
     int whilecnt = 0;
     int i = 0;
     int j = 0;
@@ -37,7 +39,6 @@ void growing(){
               i = randx;
               j = randy;
               success = 1;
-
             }
           }
 
@@ -67,8 +68,7 @@ void growing(){
             colorSize++;
             matrix[newi][newj] = colorValue;
             fill(colorR, colorG, colorB);
-            stroke(0);
-            strokeWeight(1);
+            noStroke();
             rect((width/Xbol)*newi, (height/Ybol)*newj, (width/Xbol), (height/Ybol));
           } else if (whilecnt > 5000) {
             success2 = 1;

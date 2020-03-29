@@ -12,22 +12,22 @@ int Xbol = 35; // Interior boundries of the module
 int Ybol = 70; // Each cell has 10*10cm dimensions
 
 
-int redsize = 0; // Momentarily number of the cells
-int greensize = 0;
-int cyansize = 0;
-int bluesize = 0;
-int yellowsize = 0;
+int redSize = 0; // Momentarily number of the cells
+int greenSize = 0;
+int cyanSize = 0;
+int blueSize = 0;
+int yellowSize = 0;
 
-int redborder = 450; // Intended number of the cells
-int greenborder = 500;
-int cyanborder = 500;
-int blueborder = 500;
-int yellowborder = 500;
+int redBorder = 450; // Intended number of the cells
+int greenBorder = 500;
+int cyanBorder = 500;
+int blueBorder = 500;
+int yellowBorder = 500;
 
 
 int tolerance = 100; // Negligible amount of missing - uncolored - cells
-int cycletime = 2000;
-int loopcounter = 0;
+int cycleTime = 2000;
+int loopCounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
 
@@ -37,19 +37,19 @@ void setup()
   size(400, 800);
   background(255);
 
-  red = new growCell(1, redsize, redborder, 255, 0, 0);
-  green = new growCell(2, greensize, greenborder, 0, 255, 0);
-  blue = new growCell(3, bluesize, blueborder, 0, 0, 255);
-  yellow = new growCell(4, yellowsize, yellowborder, 255, 255, 0);
-  cyan = new growCell(5, cyansize, cyanborder, 0, 255, 255);
+  red = new growCell(1, redSize, redBorder, 255, 0, 0);
+  green = new growCell(2, greenSize, greenBorder, 0, 255, 0);
+  blue = new growCell(3, blueSize, blueBorder, 0, 0, 255);
+  yellow = new growCell(4, yellowSize, yellowBorder, 255, 255, 0);
+  cyan = new growCell(5, cyanSize, cyanBorder, 0, 255, 255);
 
 
-  redsize = 0;
-  greensize = 0;
-  cyansize = 0;
-  bluesize = 0;
-  yellowsize = 0;
-  loopcounter = 0;
+  redSize = 0;
+  greenSize = 0;
+  cyanSize = 0;
+  blueSize = 0;
+  yellowSize = 0;
+  loopCounter = 0;
 
 
   for (int j=0; j<Ybol; j++)
@@ -91,13 +91,14 @@ Below, one cell for each color - which represents different spaces - are created
       } else if (matrix[i][j]== 5)
       {
         fill(0, 255, 255);
-      } else if (matrix[i][j]== 0)
+      } 
+      if (matrix[i][j]== 0)
       {
         fill(255);
       }
 
-      stroke(0);
-      strokeWeight(1);
+
+      noStroke();
       rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
     }
   }
@@ -113,51 +114,7 @@ void draw()
   blue.growing();
   yellow.growing();
   cyan.growing();
-  growcontrol();
-}
-
-
-void growcontrol() { 
- 
-/*
- Sometimes, a color is tight cornered by other colors. In that case, cornered color
- can not grow as much as expected. In this scenario, results might be deceptive.
- 
- In order to prevent that, growcontrol function counts the number of white cells if
- the amout is more than expected or not. Since small amount of errors acceptable,
- a tolerance is added to the function.
- 
- If the error is big enough to cause deception, system reruns itself and skips the 
- undesirable result. */
-
-int allcells = Xbol * Ybol;
-int coloredcells = redborder + greenborder + yellowborder + blueborder + cyanborder;
-int control = allcells - coloredcells + tolerance;
-int countergrow = 0;
-
-loopcounter++;
-
-if (loopcounter >= cycletime) 
-{
-  for (int j=1; j<Ybol; j++)
-  {
-    for (int i=1; i<Xbol; i++)
-    {
-      if (matrix[i][j] ==0)
-      {
-        countergrow++;       
-      }
-    }
-  }
-
-  if (countergrow >= control) {
-    setup();
-  }
-  if (countergrow < control) {
-    saveFrame("alternative-####.png");
-    setup();
-  }
-}
+  growControl();
 }
 
 
