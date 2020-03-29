@@ -53,10 +53,10 @@ Below, one cell for each color - which represents different spaces - are created
    randomly in order to generate alternative organizations. Each color - space - different
    int value to make further calculations.
    */
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 1;
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 2;
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 3;
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 4;
+  matrix[int(random(1, Xbol))][int(random(1, Ybol-1))]= 1;
+  matrix[int(random(1, Xbol))][int(random(1, Ybol-1))]= 2;
+  matrix[int(random(1, Xbol))][int(random(1, Ybol-1))]= 3;
+  matrix[int(random(1, Xbol))][int(random(1, Ybol-1))]= 4;
   matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
 
   // Below, Coloring process of the each cell according to its value.
@@ -84,9 +84,11 @@ Below, one cell for each color - which represents different spaces - are created
         fill(255);
       }
 
-      stroke(0);
-      strokeWeight(1);
+      noStroke();
       rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
+      stroke(150);
+      strokeWeight(1);
+      rect(0, 0, width-15, height-30);
     }
   }
 }
@@ -174,8 +176,7 @@ void growred() //Growing function of the colors - spaces -.
           redsize++;
           matrix[newi][newj] = 1;
           fill(255, 0, 0);
-          stroke(0);
-          strokeWeight(1);
+          noStroke();
           rect((width/Xbol)*newi, (height/Ybol)*newj, (width/Xbol), (height/Ybol));
         } else if (whilecnt > 5000) {
           successred2 = 1;
@@ -238,8 +239,7 @@ void growgreen()
           greensize++;
           matrix[newk][newl] = 2;
           fill(0, 255, 0);
-          stroke(0);
-          strokeWeight(1);
+          noStroke();
           rect((width/Xbol)*newk, (height/Ybol)*newl, (width/Xbol), (height/Ybol));
           //print(newk + ",");
           //println(newl);
@@ -305,8 +305,7 @@ void growblue()
           bluesize++;
           matrix[newm][newn] = 3;
           fill(0, 0, 255);
-          stroke(0);
-          strokeWeight(1);
+          noStroke();
           rect((width/Xbol)*newm, (height/Ybol)*newn, (width/Xbol), (height/Ybol));
           //print(newm + ",");
           //println(newn);
@@ -372,8 +371,7 @@ void growyellow()
           yellowsize++;
           matrix[newr][newt] = 4;
           fill(255, 255, 0);
-          stroke(0);
-          strokeWeight(1);
+          noStroke();
           rect((width/Xbol)*newr, (height/Ybol)*newt, (width/Xbol), (height/Ybol));
           //print(newr + ",");
           //println(newt);
@@ -439,8 +437,7 @@ void growcyan()
           cyansize++;
           matrix[newq][neww] = 5;
           fill(0, 255, 255);
-          stroke(0);
-          strokeWeight(1);
+          noStroke();
           rect((width/Xbol)*newq, (height/Ybol)*neww, (width/Xbol), (height/Ybol));
           //print(newq + ",");
           //println(neww);
