@@ -82,6 +82,7 @@ class growCell
     textAlign(CENTER);
     fill(1);
     text(colorName, centerX*(80/7), centerY*(80/7));
+    text((float)colorSize/100 + " sqm", centerX*(80/7), (centerY*(80/7)) + 18);
 
   }
 
