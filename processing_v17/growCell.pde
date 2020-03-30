@@ -11,6 +11,7 @@ class growCell
   int firstj;
 
 
+
   growCell(int cValue, int cSize, int cBorder, int cR, int cG, int cB) {
 
     colorValue = cValue;
@@ -64,8 +65,9 @@ class growCell
             int  randx = int(random(1, Xbol - 1));
             int  randy = int(random(1, Ybol - 1));
             float dist = dist(randx, randy, 18, 1); 
-
-            if (matrix[randx][randy] == colorValue && dist(randx, randy, firsti, firstj) < 10) {
+            float cellRange = sqrt(colorBorder);
+            
+            if (matrix[randx][randy] == colorValue && dist(randx, randy, firsti, firstj) < cellRange) {
               i = randx;
               j = randy;
               success = 1;

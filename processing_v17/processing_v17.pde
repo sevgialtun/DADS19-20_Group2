@@ -19,10 +19,10 @@ int blueSize = 0;
 int yellowSize = 0;
 
 int redBorder = 450; // Intended number of the cells
-int greenBorder = 500;
-int cyanBorder = 500;
-int blueBorder = 500;
-int yellowBorder = 500;
+int greenBorder = 300;
+int cyanBorder = 0;
+int blueBorder = 600;
+int yellowBorder = 800;
 
 
 int tolerance = 100; // Negligible amount of missing - uncolored - cells
