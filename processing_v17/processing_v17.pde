@@ -20,7 +20,7 @@ int yellowSize = 0;
 
 int redBorder = 450; // Intended number of the cells
 int greenBorder = 300;
-int cyanBorder = 0;
+int cyanBorder = 500;
 int blueBorder = 600;
 int yellowBorder = 800;
 

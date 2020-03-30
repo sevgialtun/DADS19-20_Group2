@@ -7,16 +7,16 @@ class growCell
   int colorB;
   int colorSize;
   int colorBorder;
-  
+
   int firsti;
   int firstj;
-  
+
   float centerCounter;
   float centerX;
   float centerY;
   float totalX;
   float totalY;
-  
+
 
 
 
@@ -42,9 +42,6 @@ class growCell
         if (matrix[i][j]== colorValue)
         {
 
-          firsti = i;
-          firstj = j;
-
           fill(colorR, colorG, colorB);
           noStroke();
           rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
@@ -64,16 +61,14 @@ class growCell
         if (matrix[i][j]== colorValue)
         {
           centerCounter++;
-          
+
           newi = i;
           newj = j;
-          
+
           totalX = totalX + newi;
           totalY = totalY + newj;
           centerX = totalX / centerCounter;
           centerY = totalY / centerCounter;
-       
-          
         }
       }
     }
@@ -85,7 +80,7 @@ class growCell
     int i = 0;
     int j = 0;
     int success3 = 0;
-    
+
     gravityCenter();
 
     while (success3 == 0) { // Limits the growing to determinated number.
