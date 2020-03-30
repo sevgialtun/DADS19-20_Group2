@@ -18,11 +18,11 @@ int cyanSize = 0;
 int blueSize = 0;
 int yellowSize = 0;
 
-int redBorder = 450; // Intended number of the cells
-int greenBorder = 300;
-int cyanBorder = 500;
-int blueBorder = 600;
-int yellowBorder = 800;
+int redBorder = 0; // Intended number of the cells
+int greenBorder = 0;
+int cyanBorder = 0;
+int blueBorder = 1000;
+int yellowBorder = 1450;
 
 
 int tolerance = 100; // Negligible amount of missing - uncolored - cells
@@ -37,11 +37,11 @@ void setup()
   size(400, 800);
   background(255);
 
-  red = new growCell(1, redSize, redBorder, 255, 0, 0);
-  green = new growCell(2, greenSize, greenBorder, 0, 255, 0);
-  blue = new growCell(3, blueSize, blueBorder, 0, 0, 255);
-  yellow = new growCell(4, yellowSize, yellowBorder, 255, 255, 0);
-  cyan = new growCell(5, cyanSize, cyanBorder, 0, 255, 255);
+  red = new growCell("Kitchen", 1, redSize, redBorder, 255, 0, 0);
+  green = new growCell("Common Area", 2, greenSize, greenBorder, 0, 255, 0);
+  blue = new growCell("Wet Area", 3, blueSize, blueBorder, 0, 0, 255);
+  yellow = new growCell("Personal Area", 4, yellowSize, yellowBorder, 255, 255, 0);
+  cyan = new growCell("Entrance", 5, cyanSize, cyanBorder, 0, 255, 255);
 
 
   redSize = 0;
@@ -89,7 +89,7 @@ void draw()
   blue.growing();
   yellow.growing();
   cyan.growing();
-  //growControl();
+  growControl();
 }
 
 

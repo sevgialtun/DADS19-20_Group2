@@ -7,6 +7,7 @@ class growCell
   int colorB;
   int colorSize;
   int colorBorder;
+  String colorName;
 
   int firsti;
   int firstj;
@@ -20,8 +21,9 @@ class growCell
 
 
 
-  growCell(int cValue, int cSize, int cBorder, int cR, int cG, int cB) {
+  growCell(String cName, int cValue, int cSize, int cBorder, int cR, int cG, int cB) {
 
+    colorName = cName;
     colorValue = cValue;
     colorR = cR;
     colorG = cG;
@@ -74,6 +76,14 @@ class growCell
     }
   }
 
+  void spaceNaming() { 
+    gravityCenter();
+    textSize(16);
+    textAlign(CENTER);
+    fill(1);
+    text(colorName, (int)centerX, (int)centerY);
+
+  }
 
   void growing() {
     int whilecnt = 0;
@@ -81,7 +91,8 @@ class growCell
     int j = 0;
     int success3 = 0;
 
-    gravityCenter();
+   gravityCenter();
+    //spaceNaming();
 
     while (success3 == 0) { // Limits the growing to determinated number.
       int success2 = 0;

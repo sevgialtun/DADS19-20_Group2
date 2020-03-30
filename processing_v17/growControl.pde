@@ -35,6 +35,11 @@ void growControl() {
       setup();
     }
     if (counterGrow < control) {
+      red.spaceNaming();
+      yellow.spaceNaming();
+      green.spaceNaming();
+      cyan.spaceNaming();
+      blue.spaceNaming();
       saveFrame("Results/alternative-##.png");
       setup();
     }
