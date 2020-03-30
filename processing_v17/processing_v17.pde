@@ -88,7 +88,7 @@ void draw()
   green.growing();
   blue.growing();
   yellow.growing();
-  //cyan.growing();
+  cyan.growing();
   //growControl();
 }
 

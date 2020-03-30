@@ -7,8 +7,16 @@ class growCell
   int colorB;
   int colorSize;
   int colorBorder;
+  
   int firsti;
   int firstj;
+  
+  float centerCounter;
+  float centerX;
+  float centerY;
+  float totalX;
+  float totalY;
+  
 
 
 
@@ -45,7 +53,31 @@ class growCell
     }
   }
 
+  void gravityCenter() {
+    int newi = 0;
+    int newj = 0;
 
+    for (int j=1; j<Ybol-1; j++)
+    {
+      for (int i=1; i<Xbol-1; i++)
+      {
+        if (matrix[i][j]== colorValue)
+        {
+          centerCounter++;
+          
+          newi = i;
+          newj = j;
+          
+          totalX = totalX + newi;
+          totalY = totalY + newj;
+          centerX = totalX / centerCounter;
+          centerY = totalY / centerCounter;
+       
+          
+        }
+      }
+    }
+  }
 
 
   void growing() {
@@ -53,6 +85,8 @@ class growCell
     int i = 0;
     int j = 0;
     int success3 = 0;
+    
+    gravityCenter();
 
     while (success3 == 0) { // Limits the growing to determinated number.
       int success2 = 0;
@@ -66,8 +100,8 @@ class growCell
             int  randy = int(random(1, Ybol - 1));
             float dist = dist(randx, randy, 18, 1); 
             float cellRange = sqrt(colorBorder);
-            
-            if (matrix[randx][randy] == colorValue && dist(randx, randy, firsti, firstj) < cellRange) {
+
+            if (matrix[randx][randy] == colorValue && dist(randx, randy, centerX, centerY) < cellRange) {
               i = randx;
               j = randy;
               success = 1;
