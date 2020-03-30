@@ -66,24 +66,17 @@ Below, one cell for each color - which represents different spaces - are created
    int value to make further calculations.
    */
   red.firstCell();
-  //blue.firstCell();
-  //green.firstCell();
-  //yellow.firstCell();
-  //matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  blue.firstCell();
+  green.firstCell();
+  yellow.firstCell();
 
-  // Below, Coloring process of the each cell according to its value.
-  for (int j=1; j<Ybol-1; j++)
+  matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  if (matrix[18][1]== 5)
   {
-    for (int i=1; i<Xbol-1; i++)
-    {
-      if (matrix[i][j]== 5)
-      {
-        fill(0, 255, 255);
-      }
-      noStroke();
-      rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
-    }
+    fill(0, 255, 255);
   }
+  noStroke();
+  rect((width/Xbol)*18, (height/Ybol)*1, (width/Xbol), (height/Ybol));
 }
 
 
