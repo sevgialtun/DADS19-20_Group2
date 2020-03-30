@@ -65,39 +65,21 @@ Below, one cell for each color - which represents different spaces - are created
    randomly in order to generate alternative organizations. Each color - space - different
    int value to make further calculations.
    */
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 1;
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 2;
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 3;
-  matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= 4;
-  matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  red.firstCell();
+  //blue.firstCell();
+  //green.firstCell();
+  //yellow.firstCell();
+  //matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
 
   // Below, Coloring process of the each cell according to its value.
   for (int j=1; j<Ybol-1; j++)
   {
     for (int i=1; i<Xbol-1; i++)
     {
-      if (matrix[i][j]== 1)
-      {
-        fill(255, 0, 0);
-      } else if (matrix[i][j]== 2)
-      {
-        fill(0, 255, 0);
-      } else if (matrix[i][j]== 3)
-      {
-        fill(0, 0, 255);
-      } else if (matrix[i][j]== 4)
-      {
-        fill(255, 255, 0);
-      } else if (matrix[i][j]== 5)
+      if (matrix[i][j]== 5)
       {
         fill(0, 255, 255);
-      } 
-      if (matrix[i][j]== 0)
-      {
-        fill(255);
       }
-
-
       noStroke();
       rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
     }
@@ -109,12 +91,12 @@ void draw()
 {
 
 
-  red.growing();
-  green.growing();
-  blue.growing();
-  yellow.growing();
-  cyan.growing();
-  growControl();
+  //red.growing();
+  //green.growing();
+  //blue.growing();
+  //yellow.growing();
+  //cyan.growing();
+  //growControl();
 }
 
 

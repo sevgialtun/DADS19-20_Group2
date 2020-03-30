@@ -19,6 +19,27 @@ class growCell
     colorBorder = cBorder;
   }
 
+  void firstCell() {
+    matrix[int(random(1, Xbol-5))][int(random(1, Ybol-5))]= colorValue;
+
+    for (int j=1; j<Ybol-1; j++)
+    {
+      for (int i=1; i<Xbol-1; i++)
+      {
+        if (matrix[i][j]== colorValue)
+        {
+          fill(colorR, colorG, colorB);
+          noStroke();
+          rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
+        }
+      }
+    }
+    
+  }
+
+
+
+
   void growing() {
     int whilecnt = 0;
     int i = 0;
@@ -35,6 +56,8 @@ class growCell
 
             int  randx = int(random(1, Xbol - 1));
             int  randy = int(random(1, Ybol - 1));
+            float dist = dist(randx, randy, 18, 1); 
+
             if (matrix[randx][randy] == colorValue) {
               i = randx;
               j = randy;
