@@ -40,6 +40,7 @@ void growControl() {
       green.spaceNaming();
       cyan.spaceNaming();
       blue.spaceNaming();
+
       saveFrame("Results/alternative-##.png");
       setup();
     }

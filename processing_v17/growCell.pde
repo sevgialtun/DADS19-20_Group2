@@ -12,11 +12,11 @@ class growCell
   int firsti;
   int firstj;
 
-  float centerCounter;
-  float centerX;
-  float centerY;
-  float totalX;
-  float totalY;
+  float centerCounter = 0;
+  float centerX = 0;
+  float centerY = 0;
+  float totalX = 0;
+  float totalY = 0;
 
 
 
@@ -81,7 +81,7 @@ class growCell
     textSize(16);
     textAlign(CENTER);
     fill(1);
-    text(colorName, (int)centerX, (int)centerY);
+    text(colorName, centerX*(80/7), centerY*(80/7));
 
   }
 
