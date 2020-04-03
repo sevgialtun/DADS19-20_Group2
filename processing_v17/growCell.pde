@@ -33,20 +33,35 @@ class growCell
   }
 
   void firstCell() {
+    int successFirst = 0;
+    int k = int(random(1, Xbol-1));
+    int l = int(random(1, Ybol-1));
+    
+    int newk = 0;
+    int newl = 0;
 
+    while ( successFirst == 0) {
 
-    matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= colorValue;
+      if (matrix[k][l] == 0) {
+        newk = k;
+        newl = l;
+        
+        matrix[k][l] = colorValue;
+        
 
-    for (int j=1; j<Ybol-1; j++)
-    {
-      for (int i=1; i<Xbol-1; i++)
-      {
-        if (matrix[i][j]== colorValue)
+        for (int j=1; j<Ybol-1; j++)
         {
+          for (int i=1; i<Xbol-1; i++)
+          {
+            if (matrix[i][j]== colorValue)
+            {
 
-          fill(colorR, colorG, colorB);
-          noStroke();
-          rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
+              fill(colorR, colorG, colorB);
+              noStroke();
+              rect((width/Xbol)*i, (height/Ybol)*j, (width/Xbol), (height/Ybol));
+              successFirst = 1;
+            }
+          }
         }
       }
     }
@@ -83,7 +98,6 @@ class growCell
     fill(1);
     text(colorName, centerX*(80/7), centerY*(80/7));
     text((float)colorSize/100 + " sqm", centerX*(80/7), (centerY*(80/7)) + 18);
-
   }
 
   void growing() {
@@ -92,7 +106,7 @@ class growCell
     int j = 0;
     int success3 = 0;
 
-   gravityCenter();
+    gravityCenter();
     //spaceNaming();
 
     while (success3 == 0) { // Limits the growing to determinated number.

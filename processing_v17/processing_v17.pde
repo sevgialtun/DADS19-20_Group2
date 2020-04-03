@@ -76,7 +76,7 @@ Below, one cell for each color - which represents different spaces - are created
     fill(0, 255, 255);
   }
   noStroke();
-  rect((width/Xbol)*18, (height/Ybol)*1, (width/Xbol), (height/Ybol));
+  rect((width/Xbol)*18, (height/Ybol)*1, (width/Xbol), (height/Ybol)); 
 }
 
 
