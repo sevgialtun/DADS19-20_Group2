@@ -50,12 +50,12 @@ void setup()
   blueSize = 0;
   yellowSize = 0;
   loopCounter = 0;
-  
 
 
-  for (int j=0; j<Ybol; j++)
+
+  for (int j=0; j< Ybol; j++)
   {
-    for (int i=0; i<Xbol; i++)
+    for (int i=0; i< Xbol; i++)
     {
       matrix [i][j] = 0;
     }
@@ -71,13 +71,13 @@ Below, one cell for each color - which represents different spaces - are created
   green.firstCell();
   yellow.firstCell();
 
-  matrix[4][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  matrix[4][1] = 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
   if (matrix[4][1]== 5)
   {
     fill(0, 255, 255);
+    noStroke();
+    rect((width/Xbol)*4, (height/Ybol), (width/Xbol), (height/Ybol));
   }
-  noStroke();
-  rect((width/Xbol)*18, (height/Ybol)*1, (width/Xbol), (height/Ybol)); 
 }
 
 

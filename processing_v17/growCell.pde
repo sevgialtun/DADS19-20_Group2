@@ -149,7 +149,7 @@ class growCell
               newj = j-1;
             }
           }
-          if ((matrix[newi][newj] == 0) && (newj < Ybol) && (newj >= 0) && (newi < Xbol) && (newi >= 0)) {
+          if ((matrix[newi][newj] == 0) && (newj <= Ybol) && (newj >= 0) && (newi <= Xbol) && (newi >= 0)) {
             success2 = 1;
             success3 = 1;
             colorSize++;
