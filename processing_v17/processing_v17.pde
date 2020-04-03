@@ -18,14 +18,14 @@ int cyanSize = 0;
 int blueSize = 0;
 int yellowSize = 0;
 
-int redBorder = 300; // Intended number of the cells
-int greenBorder = 600;
-int cyanBorder = 400;
-int blueBorder = 200;
-int yellowBorder = 950;
+int redBorder = 28; // Intended number of the cells
+int greenBorder = 10;
+int cyanBorder = 30;
+int blueBorder = 5;
+int yellowBorder = 25;
 
 
-int tolerance = 100; // Negligible amount of missing - uncolored - cells
+int tolerance = 8; // Negligible amount of missing - uncolored - cells
 int cycleTime = 2000;
 int loopCounter = 0;
 
@@ -50,6 +50,7 @@ void setup()
   blueSize = 0;
   yellowSize = 0;
   loopCounter = 0;
+  
 
 
   for (int j=0; j<Ybol; j++)
