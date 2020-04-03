@@ -35,7 +35,7 @@ class growCell
   void firstCell() {
 
 
-    matrix[int(random(1, Xbol-5))][int(random(1, Ybol-5))]= colorValue;
+    matrix[int(random(1, Xbol-1))][int(random(1, Ybol-1))]= colorValue;
 
     for (int j=1; j<Ybol-1; j++)
     {

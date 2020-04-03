@@ -8,8 +8,8 @@ growCell cyan;
 growCell blue;
 growCell yellow;
 
-int Xbol = 35; // Interior boundries of the module
-int Ybol = 70; // Each cell has 10*10cm dimensions
+int Xbol = 7; // Interior boundries of the module
+int Ybol = 14; // Each cell has 50*50cm dimensions
 
 
 int redSize = 0; // Momentarily number of the cells
@@ -70,8 +70,8 @@ Below, one cell for each color - which represents different spaces - are created
   green.firstCell();
   yellow.firstCell();
 
-  matrix[18][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
-  if (matrix[18][1]== 5)
+  matrix[4][1]= 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  if (matrix[4][1]== 5)
   {
     fill(0, 255, 255);
   }
