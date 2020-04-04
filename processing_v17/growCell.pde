@@ -34,20 +34,16 @@ class growCell
 
   void firstCell() {
     int successFirst = 0;
-    int k = int(random(1, Xbol-1));
-    int l = int(random(1, Ybol-1));
-    
-    int newk = 0;
-    int newl = 0;
+
 
     while ( successFirst == 0) {
+      int k = int(random(1, Xbol-1));
+      int l = int(random(1, Ybol-1));
 
       if (matrix[k][l] == 0) {
-        newk = k;
-        newl = l;
-        
+
         matrix[k][l] = colorValue;
-        
+
 
         for (int j=1; j<Ybol-1; j++)
         {

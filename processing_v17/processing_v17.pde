@@ -84,13 +84,14 @@ Below, one cell for each color - which represents different spaces - are created
 void draw()
 {
 
-
+/*
   red.growing();
   green.growing();
   blue.growing();
   yellow.growing();
   cyan.growing();
   growControl();
+  */
 }
 
 
