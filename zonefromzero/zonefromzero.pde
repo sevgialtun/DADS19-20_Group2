@@ -1,10 +1,15 @@
+// Digital Architectural Design Studio - Group 2
+//Zone Organization Algorithm
+//Version z2-coding common space
+
+
 void setup() {
   size(350, 720);
   background(255);
 }
 //for table
-int x1=150;
-int y1=150;
+int x1=150;//REFERENCE POINTS
+int y1=150;//REFERENCE POINTS
 int w1=76;
 int l1=107;
 
@@ -13,14 +18,14 @@ int x2=0;
 int y2=0;
 int w2=45;
 int l2=54; 
-int counterSeat=0;
+int counterSeat=0;//CONTROL NUMBER FOR ONE SIDE PLACEMENT
 
 //for monitor
 float x3=0;
 float y3=0;
 int w3=85;
 int l3=5; 
-float rangeM = random(100, 150);
+float rangeM = random(100, 150);//monitor margin changes randomly
 int m=0;
 
 void draw()
@@ -28,13 +33,12 @@ void draw()
   fill(0,200,200);
   rect(x1, y1, w1, l1);//draw table
 
-  //println(x1+ "," +y1);
-
+  
   //draw seating units
 
-  for (int a=0; a<2; a++)
+  for (int a=0; a<2; a++)//place 2 units
   { 
-   if  (counterSeat ==0)// eğer 4 veya 5. seçenek geröekleştiyse daha fazla oturma elemanı çizilmeyecek
+   if  (counterSeat ==0)// eğer 4 veya 5. seçenek gerçekleştiyse daha fazla oturma elemanı çizilmeyecek
    
     {
        println(counterSeat);
