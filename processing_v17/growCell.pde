@@ -93,7 +93,7 @@ class growCell
     textAlign(CENTER);
     fill(1);
     text(colorName, centerX*(400/7), centerY*(400/7));
-    text((float)colorSize/100 + " sqm", centerX*(400/7), (centerY*(400/7)) + 18);
+    text((float)colorSize/4 + " sqm", centerX*(400/7), (centerY*(400/7)) + 18);
   }
 
   void cornerCell() {
@@ -144,7 +144,7 @@ class growCell
             int  randx = int(random(1, Xbol - 1));
             int  randy = int(random(1, Ybol - 1));
             //float dist = dist(randx, randy, 18, 1); 
-            float cellRange = sqrt(colorBorder * (height/Ybol) * (width/Xbol) / PI);
+            float cellRange = sqrt(colorBorder * (height/Ybol) * (width/Xbol) * (colorSize+1) / PI);
 
             if (matrix[randx][randy] == colorValue && dist(randx, randy, centerX, centerY) < cellRange) {
               i = randx;

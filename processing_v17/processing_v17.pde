@@ -6,7 +6,7 @@ growCell red;
 growCell green;
 growCell cyan;
 growCell blue;
-growCell yellow;
+growCell yellow; 
 
 int Xbol = 7; // Interior boundries of the module
 int Ybol = 14; // Each cell has 50*50cm dimensions
@@ -26,7 +26,7 @@ int yellowBorder = 25;
 
 
 int tolerance = 4; // Negligible amount of missing - uncolored - cells
-int cycleTime = 1000;
+int cycleTime = 500;
 int loopCounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
@@ -68,11 +68,7 @@ Below, one cell for each color - which represents different spaces - are created
    randomly in order to generate alternative organizations. Each color - space - different
    int value to make further calculations.
    */
-  red.firstCell();
-  blue.firstCell();
-  green.firstCell();
-  yellow.firstCell();
-
+ 
   matrix[3][1] = 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
   if (matrix[3][1]== 5)
   {
@@ -80,6 +76,12 @@ Below, one cell for each color - which represents different spaces - are created
     noStroke();
     rect((width/Xbol)*3, (height/Ybol), (width/Xbol), (height/Ybol));
   }
+  
+  red.firstCell();
+  blue.firstCell();
+  green.firstCell();
+  yellow.firstCell();
+
 }
 
 
