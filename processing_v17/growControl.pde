@@ -24,7 +24,7 @@ void growControl() {
     {
       for (int i=0; i<Xbol; i++)
       {
-        if (matrix[i][j] ==0)
+        if (matrix[i][j] == 0)
         {
           counterGrow++;
         }

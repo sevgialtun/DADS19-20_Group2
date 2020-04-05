@@ -25,7 +25,7 @@ int blueBorder = 5;
 int yellowBorder = 25;
 
 
-int tolerance = 8; // Negligible amount of missing - uncolored - cells
+int tolerance = 4; // Negligible amount of missing - uncolored - cells
 int cycleTime = 1000;
 int loopCounter = 0;
 
@@ -50,6 +50,7 @@ void setup()
   blueSize = 0;
   yellowSize = 0;
   loopCounter = 0;
+  
 
 
 

@@ -144,7 +144,7 @@ class growCell
             int  randx = int(random(1, Xbol - 1));
             int  randy = int(random(1, Ybol - 1));
             //float dist = dist(randx, randy, 18, 1); 
-            float cellRange = sqrt(colorBorder)/1.7;
+            float cellRange = sqrt(colorBorder * (height/Ybol) * (width/Xbol) / PI);
 
             if (matrix[randx][randy] == colorValue && dist(randx, randy, centerX, centerY) < cellRange) {
               i = randx;
