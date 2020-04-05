@@ -26,7 +26,7 @@ int yellowBorder = 25;
 
 
 int tolerance = 8; // Negligible amount of missing - uncolored - cells
-int cycleTime = 2000;
+int cycleTime = 1000;
 int loopCounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
@@ -53,6 +53,7 @@ void setup()
 
 
 
+
   for (int j=0; j< Ybol; j++)
   {
     for (int i=0; i< Xbol; i++)
@@ -71,12 +72,12 @@ Below, one cell for each color - which represents different spaces - are created
   green.firstCell();
   yellow.firstCell();
 
-  matrix[4][1] = 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
-  if (matrix[4][1]== 5)
+  matrix[3][1] = 5; // Only the first cyan - entrance - cell is not random since the entrance is fixed.
+  if (matrix[3][1]== 5)
   {
     fill(0, 255, 255);
     noStroke();
-    rect((width/Xbol)*4, (height/Ybol), (width/Xbol), (height/Ybol));
+    rect((width/Xbol)*3, (height/Ybol), (width/Xbol), (height/Ybol));
   }
 }
 
@@ -84,14 +85,18 @@ Below, one cell for each color - which represents different spaces - are created
 void draw()
 {
 
-/*
+
   red.growing();
   green.growing();
   blue.growing();
   yellow.growing();
   cyan.growing();
+  red.cornerCell();
+  green.cornerCell();
+  blue.cornerCell();
+  yellow.cornerCell();
+  cyan.cornerCell();
   growControl();
-  */
 }
 
 

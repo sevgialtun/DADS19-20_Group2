@@ -45,9 +45,9 @@ class growCell
         matrix[k][l] = colorValue;
 
 
-        for (int j=1; j<Ybol-1; j++)
+        for (int j=1; j<Ybol; j++)
         {
-          for (int i=1; i<Xbol-1; i++)
+          for (int i=1; i<Xbol; i++)
           {
             if (matrix[i][j]== colorValue)
             {
@@ -96,6 +96,34 @@ class growCell
     text((float)colorSize/100 + " sqm", centerX*(400/7), (centerY*(400/7)) + 18);
   }
 
+  void cornerCell() {
+
+    if (matrix[0][0] == 0 && matrix[1][0] == colorValue && matrix[0][1] == colorValue) {
+      matrix[0][0] = colorValue;
+      fill(colorR, colorG, colorB);
+      noStroke();
+      rect((0), (0), (width/Xbol), (height/Ybol));
+    }
+    if (matrix[0][Ybol-1] == 0 && matrix[1][Ybol-1] == colorValue && matrix[0][Ybol-2] == colorValue) {
+      matrix[0][Ybol-1] = colorValue;
+      fill(colorR, colorG, colorB);
+      noStroke();
+      rect((0), (height/Ybol)*(Ybol-1), (width/Xbol), (height/Ybol));
+    }
+    if (matrix[Xbol-1][0] == 0 && matrix[Xbol-1][1] == colorValue && matrix[Xbol-2][0] == colorValue) {
+      matrix[Xbol-1][0] = colorValue;
+      fill(colorR, colorG, colorB);
+      noStroke();
+      rect((width/Xbol)*(Xbol-1), (0), (width/Xbol), (height/Ybol));
+    }
+    if (matrix[Xbol-1][Ybol-1] == 0 && matrix[Xbol-2][Ybol-1] == colorValue && matrix[Xbol-1][Ybol-2] == colorValue) {
+      matrix[Xbol-1][Ybol-1] = colorValue;
+      fill(colorR, colorG, colorB);
+      noStroke();
+      rect((width/Xbol)*(Xbol-1), (height/Ybol)*(Ybol-1), (width/Xbol), (height/Ybol));
+    }
+  }
+
   void growing() {
     int whilecnt = 0;
     int i = 0;
@@ -115,8 +143,8 @@ class growCell
 
             int  randx = int(random(1, Xbol - 1));
             int  randy = int(random(1, Ybol - 1));
-            float dist = dist(randx, randy, 18, 1); 
-            float cellRange = sqrt(colorBorder);
+            //float dist = dist(randx, randy, 18, 1); 
+            float cellRange = sqrt(colorBorder)/1.7;
 
             if (matrix[randx][randy] == colorValue && dist(randx, randy, centerX, centerY) < cellRange) {
               i = randx;
@@ -153,7 +181,7 @@ class growCell
             fill(colorR, colorG, colorB);
             noStroke();
             rect((width/Xbol)*newi, (height/Ybol)*newj, (width/Xbol), (height/Ybol));
-          } else if (whilecnt > 5000) {
+          } else if (whilecnt > 8000) {
             success2 = 1;
             success3 = 1;
           }

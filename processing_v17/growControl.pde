@@ -20,9 +20,9 @@ void growControl() {
 
   if (loopCounter >= cycleTime) 
   {
-    for (int j=1; j<Ybol; j++)
+    for (int j=0; j<Ybol; j++)
     {
-      for (int i=1; i<Xbol; i++)
+      for (int i=0; i<Xbol; i++)
       {
         if (matrix[i][j] ==0)
         {
@@ -31,10 +31,10 @@ void growControl() {
       }
     }
 
-    if (counterGrow >= control) {
+    if (counterGrow > control) {
       setup();
     }
-    if (counterGrow < control) {
+    if (counterGrow <= control) {
       red.spaceNaming();
       yellow.spaceNaming();
       green.spaceNaming();
