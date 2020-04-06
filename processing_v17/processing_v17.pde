@@ -1,6 +1,13 @@
 // Digital Architectural Design Studio - Group 2
-//Space Organization Algorithm
-//Version 17.0
+// Space Organization Algorithm
+// Version 17.0
+// 07.04.2020
+// First Jury
+// Demonstration no.1
+// Tolerance is 1 sqm
+
+
+
 
 growCell red;
 growCell green;
@@ -26,7 +33,7 @@ int yellowBorder = 25;
 
 
 int tolerance = 4; // Negligible amount of missing - uncolored - cells
-int cycleTime = 500;
+int cycleTime = 300;
 int loopCounter = 0;
 
 int [][] matrix = new int[Xbol][Ybol]; 
