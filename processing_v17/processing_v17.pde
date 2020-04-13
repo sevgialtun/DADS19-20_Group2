@@ -36,6 +36,8 @@ int tolerance = 4; // Negligible amount of missing - uncolored - cells
 int cycleTime = 300;
 int loopCounter = 0;
 
+IntList filterList;
+
 int [][] matrix = new int[Xbol][Ybol]; 
 
 void setup()
@@ -58,6 +60,7 @@ void setup()
   yellowSize = 0;
   loopCounter = 0;
   
+  filterList = new IntList();
 
 
 

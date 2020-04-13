@@ -35,6 +35,7 @@ void growControl() {
       setup();
     }
     if (counterGrow <= control) {
+      growFilter();
       red.spaceNaming();
       yellow.spaceNaming();
       green.spaceNaming();
