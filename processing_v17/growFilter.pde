@@ -1,10 +1,6 @@
 void growFilter() {
 
-  int filter1 = 0;
-  int filter2 = 0;
-  int filter3 = 0;
-  int filter4 = 0;
-  int filter5 = 0;
+
 
 
   for (int j=1; j<Ybol-1; j++)
@@ -13,6 +9,11 @@ void growFilter() {
     {
       int newi = i;
       int newj = j;
+      int filter1 = 0;
+      int filter2 = 0;
+      int filter3 = 0;
+      int filter4 = 0;
+      int filter5 = 0;
 
 
       for (int k = newi - 1; k < newi + 2; k++) {
