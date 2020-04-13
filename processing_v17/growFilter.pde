@@ -18,6 +18,7 @@ void growFilter() {
           }
         }
       }
+      // çevredeki hücrelerden 5 tanesi aynı renkteyse, o renge dönüş
     }
   }
 }
