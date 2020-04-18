@@ -1,3 +1,4 @@
+merhaba ben sevgi
 void growFilter() {
 
   for (int j=1; j<Ybol-1; j++)
