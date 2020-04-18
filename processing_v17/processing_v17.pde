@@ -13,7 +13,7 @@ growCell red;
 growCell green;
 growCell cyan;
 growCell blue;
-growCell yellow; 
+//growCell yellow; 
 
 int Xbol = 7; // Interior boundries of the module
 int Ybol = 14; // Each cell has 50*50cm dimensions
@@ -23,16 +23,16 @@ int redSize = 0; // Momentarily number of the cells
 int greenSize = 0;
 int cyanSize = 0;
 int blueSize = 0;
-int yellowSize = 0;
+//int yellowSize = 0;
 
-int redBorder = 28; // Intended number of the cells
-int greenBorder = 10;
-int cyanBorder = 30;
-int blueBorder = 5;
-int yellowBorder = 25;
+int redBorder = 38; // Intended number of the cells
+int greenBorder = 20;
+int cyanBorder = 34;
+int blueBorder = 6;
+//int yellowBorder = 25;
 
 
-int tolerance = 8; // Negligible amount of missing - uncolored - cells
+int tolerance = 4; // Negligible amount of missing - uncolored - cells
 int cycleTime = 300;
 int loopCounter = 0;
 
@@ -44,10 +44,10 @@ void setup()
   size(400, 800);
   background(255);
 
-  red = new growCell("Kitchen", 1, redSize, redBorder, 255, 0, 0);
-  green = new growCell("Common Area", 2, greenSize, greenBorder, 0, 255, 0);
+  red = new growCell("Common Area", 1, redSize, redBorder, 255, 0, 0);
+  green = new growCell("Personal Area", 2, greenSize, greenBorder, 0, 255, 0);
   blue = new growCell("Wet Area", 3, blueSize, blueBorder, 0, 0, 255);
-  yellow = new growCell("Personal Area", 4, yellowSize, yellowBorder, 255, 255, 0);
+  //yellow = new growCell("Kitchen", 4, yellowSize, yellowBorder, 255, 255, 0);
   cyan = new growCell("Entrance", 5, cyanSize, cyanBorder, 0, 255, 255);
 
 
@@ -55,7 +55,7 @@ void setup()
   greenSize = 0;
   cyanSize = 0;
   blueSize = 0;
-  yellowSize = 0;
+  //yellowSize = 0;
   loopCounter = 0;
 
 
@@ -86,7 +86,7 @@ Below, one cell for each color - which represents different spaces - are created
   red.firstCell();
   blue.firstCell();
   green.firstCell();
-  yellow.firstCell();
+  //yellow.firstCell();
 
 }
 
@@ -98,12 +98,12 @@ void draw()
   red.growing();
   green.growing();
   blue.growing();
-  yellow.growing();
+  //yellow.growing();
   cyan.growing();
   red.cornerCell();
   green.cornerCell();
   blue.cornerCell();
-  yellow.cornerCell();
+  //yellow.cornerCell();
   cyan.cornerCell();
   growControl();
 }
