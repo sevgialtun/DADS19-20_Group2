@@ -1,10 +1,7 @@
 // Digital Architectural Design Studio - Group 2
-// Space Organization Algorithm
-// Version 17.0
-// 07.04.2020
-// First Jury
-// Demonstration no.1
-// Tolerance is 1 sqm
+// Space Organization Algorithm - kingPenguin
+// Version 17.1
+
 
 
 
